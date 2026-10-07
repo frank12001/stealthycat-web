@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart redirect to 圓圓劍仙 (Off With My Head) on App Store or Google Play.">
+  <title>Opening Store | 圓圓劍仙 Off With My Head</title>
+  <link rel="icon" type="image/png" href="img/stealthy-cat-logo.png">
+  <link rel="apple-touch-icon" href="img/stealthy-cat-logo.png">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    const urlAndroidWindows = "https://play.google.com/store/apps/details?id=com.touxiaomao.smallhead";
+    const urlIOS = "https://testflight.apple.com/join/6ceKTt17";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const target = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream ? urlIOS : urlAndroidWindows;
+      document.querySelector("[data-store-link]").href = target;
+      window.location.replace(target);
+    });
+  </script>
+</head>
+<body>
+  <main class="redirect">
+    <section class="redirect-panel">
+      <img src="img/icon.jpg" alt="">
+      <p class="eyebrow">Redirecting</p>
+      <h1>正在開啟商店</h1>
+      <p>如果沒有自動跳轉，請使用下方按鈕前往適合你裝置的商店頁面。</p>
+      <div class="actions">
+        <a class="button primary" data-store-link href="https://play.google.com/store/apps/details?id=com.touxiaomao.smallhead">Open Store</a>
+        <a class="button" href="index.html">Back Home</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
