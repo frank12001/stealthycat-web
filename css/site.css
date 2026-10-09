@@ -580,8 +580,47 @@ h1.hero-title {
 }
 
 .signal-card {
-  bottom: 168px;
+  bottom: 56px;
   width: min(236px, 70vw);
+}
+
+.phone-screen.shot-battle {
+  aspect-ratio: 9 / 16;
+  min-height: 0;
+  background: url("../img/shots/battle.jpg") center / cover;
+}
+
+.shots {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.shot {
+  display: block;
+}
+
+.shot img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.shot:hover img {
+  transform: translateY(-4px);
+  border-color: rgba(93, 255, 179, 0.44);
+}
+
+.shot span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .chips {
@@ -738,6 +777,19 @@ a:focus-visible {
 
   .device-stage {
     min-height: 690px;
+  }
+
+  .shots {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 58%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .shot {
+    scroll-snap-align: start;
   }
 
   .signal-card {
